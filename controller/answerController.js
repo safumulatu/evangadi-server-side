@@ -30,6 +30,7 @@ const { StatusCodes } = require("http-status-codes");
 //       .json({ msg: "Something went wrong while fetching the question" });
 //   }
 // }
+
 async function GiveAnswer(req, res) {
   const questionId = req.params.questionid;
   const userId = req.user.userid;

@@ -6,11 +6,15 @@ const dbconnection = require("./database/dbConfig");
 const userRoutes = require("./ROUTES/useRoute");
 const QuestinRoute = require("./ROUTES/questionRoute");
 const AnswerRoute = require("./ROUTES/answerRoute");
+const { StatusCodes } = require("http-status-codes");
 //*************************users************************************* */
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.status(StatusCodes.OK).json({ msg: "working brhu" });
+});
 //**************************routers************************************ */
 app.use("/api/users", userRoutes);
 app.use("/api/users", QuestinRoute);

@@ -6,7 +6,9 @@ const {
   register,
   login,
   checkuser,
+  checking,
 } = require("../controller/UserControllers.js");
+router.get("/checking", checking);
 
 // register user
 router.post("/register", register);

@@ -3,6 +3,9 @@ const { StatusCodes } = require("http-status-codes");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/authMiddleWare");
+async function checking(req, res) {
+  res.status(StatusCodes.OK).json({ msg: "working brhu" });
+}
 async function register(req, res) {
   const { username, firstname, lastname, email, password } = req.body;
   if (!username || !firstname || !lastname || !email || !password) {
@@ -90,4 +93,4 @@ async function checkuser(req, res) {
   // res.send("check user");
 }
 
-module.exports = { register, login, checkuser };
+module.exports = { register, login, checkuser, checking };
