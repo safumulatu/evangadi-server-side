@@ -15,14 +15,12 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "working brhu" });
 });
-//**************************routers************************************ */
+//**************************routers*********************************** */
 app.use("/api/users", userRoutes);
 app.use("/api/users", QuestinRoute);
 app.use("/api/users", AnswerRoute);
 
 //**************************done!************************************ */
 app.listen(8000, () => {
-  console.log(
-    "❤️❤️❤️ up and running in nice way given port http://localhost:8000 "
-  );
+  console.log("up and running in nice way given port http://localhost:8000 ");
 });
