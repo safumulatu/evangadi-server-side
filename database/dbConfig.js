@@ -4,7 +4,7 @@ const mysql2 = require("mysql2");
 const dotenv = require("dotenv");
 dotenv.config();
 const dbconnection = mysql2.createPool({
-  host: "sql8.freesqldatabase.com",
+  host: process.env.DB_HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
