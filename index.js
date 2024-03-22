@@ -11,7 +11,7 @@ const { StatusCodes } = require("http-status-codes");
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+const PORT = process.env.PORT;
 app.get("/", (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "working brhu" });
 });
@@ -21,6 +21,8 @@ app.use("/api/users", QuestinRoute);
 app.use("/api/users", AnswerRoute);
 
 //**************************done!************************************ */
-app.listen(8000, () => {
-  console.log("up and running in nice way given port http://localhost:8000 ");
+app.listen(PORT, () => {
+  console.log(
+    `up and running in nice way given port http://localhost: ${PORT}`
+  );
 });
