@@ -22,7 +22,5 @@ app.use("/api/users", AnswerRoute);
 
 //**************************done!************************************ */
 app.listen(PORT, () => {
-  console.log(
-    `up and running in nice way given port http://localhost: ${PORT}`
-  );
+  console.log(`up and running on http://localhost:${PORT}`);
 });
