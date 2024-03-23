@@ -1,7 +1,7 @@
 const dbconnection = require("../database/dbConfig");
 const { StatusCodes } = require("http-status-codes");
 const express = require("express");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/authMiddleWare");
 async function checking(req, res) {
@@ -94,4 +94,19 @@ async function checkuser(req, res) {
   // res.send("check user");
 }
 
-module.exports = { register, login, checkuser, checking };
+async function create(req, res) {
+  try {
+    const connection = await pool.getConnection();
+    await connection.query(`CREATE TABLE IF NOT EXISTS your_table_name (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255) NOT NULL
+    )`);
+    connection.release();
+    res.send("Table created successfully");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error creating table");
+  }
+}
+
+module.exports = { register, login, checkuser, checking, create };

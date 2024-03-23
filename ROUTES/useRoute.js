@@ -7,9 +7,12 @@ const {
   login,
   checkuser,
   checking,
+  create,
 } = require("../controller/UserControllers.js");
 router.get("/checking", checking);
 
+// register user
+router.post("/create-table", create);
 // register user
 router.post("/register", register);
 
