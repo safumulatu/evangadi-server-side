@@ -1,7 +1,7 @@
 const dbconnection = require("../database/dbConfig");
 const { StatusCodes } = require("http-status-codes");
 const express = require("express");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/authMiddleWare");
 async function checking(req, res) {
