@@ -1,6 +1,8 @@
-const bcrypt = require("bcrypt");
+const express = require("express");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+
 // json web token
 async function auth(req, res, next) {
   const authHeader = req.headers.authorization;
