@@ -13,21 +13,16 @@ app.use(express.json());
 app.use(cors());
 const PORT = process.env.PORT;
 app.get("/", (req, res) => {
-  res.status(StatusCodes.OK).json({ msg: "working brhu" });
+  res.status(StatusCodes.OK).json({ msg: "i have no idea why" });
 });
-app.get("/create-table", async (req, res) => {
-  try {
-    const connection = await pool.getConnection();
-    await connection.query(`CREATE TABLE IF NOT EXISTS test_table (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      name VARCHAR(255) NOT NULL
-    )`);
-    connection.release();
-    res.send("Table created successfully");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error creating table");
-  }
+app.post("/create-table", (req, res) => {
+  const { tableName, columns } = req.body;
+
+  // Your database query to create the table
+  // For demonstration, we'll just log the table creation details
+  console.log(`Creating table ${tableName} with columns:`, columns);
+
+  res.send(`Table ${tableName} created successfully.`);
 });
 //**************************routers*********************************** */
 app.use("/api/users", userRoutes);
