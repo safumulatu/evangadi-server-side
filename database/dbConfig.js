@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const mysql2 = require("mysql2");
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 const dbconnection = mysql2.createPool({
   host: "localhost",
   user: process.env.USER,

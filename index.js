@@ -17,11 +17,9 @@ app.get("/", (req, res) => {
 });
 app.post("/create-table", (req, res) => {
   const { tableName, columns } = req.body;
-
   // Your database query to create the table
   // For demonstration, we'll just log the table creation details
   console.log(`Creating table ${tableName} with columns:`, columns);
-
   res.send(`Table ${tableName} created successfully.`);
 });
 //**************************routers*********************************** */
